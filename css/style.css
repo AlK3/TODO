@@ -1,0 +1,38 @@
+form {
+	display: flex;
+	justify-content: center;
+}
+input {
+	font-size: 100%;
+	font-family: inherit;
+	padding: 0.25em 0.5em;
+	margin: 0.25em 0.5em;
+	background-color: #fff;
+	border: 2px solid #001D50;
+	border-radius: 4px;
+	background-color: #EFEFEF;
+}
+input:focus {
+  border-color: #FFEF00;
+  outline: 3px solid transparent;
+}
+input[type="submit"] {
+	background-color: #EBFFFF;
+}
+.list {
+	display: grid;
+	justify-content: center;
+	grid-template-columns: repeat(3, 30%);
+	word-wrap:break-word;
+	grid-gap: 0.25em 1em;
+}
+.task {
+	border: 2px solid #001D50;
+	border-radius: 4px;
+	word-wrap:break-word;
+	padding: 0.25em 0.5em;
+}
+.done {
+	background-color: #D5FFDC;
+	text-decoration: line-through;
+}

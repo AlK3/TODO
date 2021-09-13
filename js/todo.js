@@ -1,23 +1,28 @@
-const field = document.querySelector('.field');
-console.log(field.value);
+const taskform = document.forms.taskform;
+const tasktext = taskform.elements.taskstext;
 
 function createTask(textContent) {
-	var task = document.createElement("div");
-	task.innerHTML = textContent;
+	const task = document.createElement('div');
+	task.className = 'task';
+	task.innerHTML = textContent + '<input type="checkbox" name="taskcheck" onchange="taskReady(this)">';
 	return task;
 }
 
-function addTask(value) {
-	if (value) {
-		var div = createTask(value);
-		console.log(div);
-		var list = document.querySelector('.list');
-		list.appendChild(div);
+function addTask() {
+	event.preventDefault();
+	if (tasktext.value.trim()) {
+		const task = createTask(tasktext.value);
+		console.log(task);
+		const list = document.querySelector('.list');
+		list.appendChild(task);
+		tasktext.value = "";
 	}
 }
 
-const add = document.querySelector('.add');
-add.addEventListener('click', function (event) {
-	addTask(field.value);
-	field.value = "";
-});
+function taskReady(taskCheck) {
+	console.log(taskCheck);
+	taskCheck.checked ? taskCheck.parentNode.classList.add('done')
+		: taskCheck.parentNode.classList.remove('done');
+}
+
+
